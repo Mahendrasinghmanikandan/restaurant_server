@@ -17,7 +17,7 @@ const createBooking = async (req, res) => {
 
 const getBooking = async (req, res) => {
   try {
-    const data = await Booking.find();
+    const data = await Booking.find().sort({createdAt: -1});
     return res.status(200).send({ data: data });
   } catch (err) {
     console.log(err);
